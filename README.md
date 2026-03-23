@@ -11,6 +11,39 @@ claude plugin install vibecode-workflow@vibecode-workflow-marketplace
 
 A project template for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that provides structured commands, skills, and documentation conventions out of the box.
 
+### Getting Started
+
+1. **Install Claude Code** if you haven't already:
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+2. **Install the plugin** from your project directory:
+   ```bash
+   claude plugin marketplace add greglamb/vibecode-workflow-marketplace
+   claude plugin install vibecode-workflow@vibecode-workflow-marketplace
+   ```
+
+3. **Install dependency plugins** — The workflow uses two additional marketplace plugins:
+   ```bash
+   /plugin marketplace add obra/superpowers-marketplace
+   /plugin install superpowers@superpowers-marketplace
+   /plugin install episodic-memory@superpowers-marketplace
+   ```
+
+4. **Run setup** — Use `/setthevibe` to initialize your project environment (creates `.worktrees/`, `_reference/`, `TODO.md`, `CHANGELOG.md`, and configures `CLAUDE.md`).
+
+5. **Define your standards** — Use `/preparestandards` to generate a `project-standards` skill, or manually edit `.claude/skills/project-standards/SKILL.md` with your project's coding conventions, linting rules, and architectural guidelines. This skill is invoked before any code is written or modified. For help authoring skills, try using the [Anthropic Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) or the [Skill Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) tool.
+
+6. **Add reference files** — Drop style guides, API specs, or other reference material into `.claude/skills/project-standards/references/`.
+
+7. **Start Claude Code** from the project root:
+   ```bash
+   claude
+   ```
+
+8. **Use the commands** — Type `/check`, `/commit`, `/todo`, etc. in your Claude Code session.
+
 ### What's Included
 
 #### Custom Slash Commands (`.claude/commands/`)
@@ -46,39 +79,6 @@ Two marketplace plugins are enabled by default:
 - **`CHANGELOG.md`** — Track all user-facing changes here.
 - **`TODO.md`** — Track deferred work, known limitations, and planned features. The template enforces a "no silent deferrals" rule: anything out of scope must be logged.
 - **`docs/plans/`** — Directory for longer-form planning documents.
-
-### Getting Started
-
-1. **Install Claude Code** if you haven't already:
-   ```bash
-   npm install -g @anthropic-ai/claude-code
-   ```
-
-2. **Install the plugin** from your project directory:
-   ```bash
-   claude plugin marketplace add greglamb/vibecode-workflow-marketplace
-   claude plugin install vibecode-workflow@vibecode-workflow-marketplace
-   ```
-
-3. **Install dependency plugins** — The workflow uses two additional marketplace plugins:
-   ```bash
-   /plugin marketplace add obra/superpowers-marketplace
-   /plugin install superpowers@superpowers-marketplace
-   /plugin install episodic-memory@superpowers-marketplace
-   ```
-
-4. **Run setup** — Use `/setthevibe` to initialize your project environment (creates `.worktrees/`, `_reference/`, `TODO.md`, `CHANGELOG.md`, and configures `CLAUDE.md`).
-
-5. **Define your standards** — Use `/preparestandards` to generate a `project-standards` skill, or manually edit `.claude/skills/project-standards/SKILL.md` with your project's coding conventions, linting rules, and architectural guidelines. This skill is invoked before any code is written or modified. For help authoring skills, try using the [Anthropic Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) or the [Skill Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) tool.
-
-6. **Add reference files** — Drop style guides, API specs, or other reference material into `.claude/skills/project-standards/references/`.
-
-7. **Start Claude Code** from the project root:
-   ```bash
-   claude
-   ```
-
-8. **Use the commands** — Type `/check`, `/commit`, `/todo`, etc. in your Claude Code session.
 
 ### Customization
 
