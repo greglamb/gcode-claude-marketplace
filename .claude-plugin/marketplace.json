@@ -1,0 +1,17 @@
+{
+  "name": "vibecode-workflow-marketplace",
+  "owner": {
+    "name": "Greg Lamb",
+    "email": "email@greglamb.dev"
+  },
+  "metadata": {
+    "description": "Collection of tools used in my AI assisted workflow",
+    "version": "0.0.1"
+  },
+  "plugins": [
+    {
+      "name": "vibecode-workflow",
+      "source": "./plugins/vibecode-workflow"
+    }
+  ]
+}

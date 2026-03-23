@@ -1,0 +1,12 @@
+{
+  "name": "vibecode-workflow",
+  "description": "Collection of tools used in my AI assisted workflow",
+  "version": "0.0.1",
+  "author": {
+    "name": "Greg Lamb",
+    "email": "email@greglamb.dev"
+  },
+  "homepage": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "repository": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "license": "MIT"
+}
