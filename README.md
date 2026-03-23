@@ -102,6 +102,29 @@ Create a directory under `.claude/skills/` with a `SKILL.md` file and an optiona
 
 Commands can declare `allowed-tools` in their frontmatter to limit what Claude can do (see `commit.md` for an example that restricts to git operations only).
 
+## Recommended Plugins
+
+These plugins are not included in this marketplace but pair well with vibecode-workflow:
+
+- **[skill-seekers](https://github.com/greglamb/skill-seekers-marketplace)** — Create AI skills from documentation, code repositories, and other sources. Requires [Skill Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) to be installed (`pipx install skill-seekers[mcp]` or `brew install skill-seekers`).
+  ```bash
+  claude plugin marketplace add greglamb/skill-seekers-marketplace
+  claude plugin install skill-seekers@skill-seekers-marketplace
+  ```
+
+### Swift / Apple Development
+
+- **[SwiftUI Agent Skill](https://github.com/twostraws/SwiftUI-Agent-Skill)** — Helps AI coding assistants write better SwiftUI code with guidance on API usage, design, performance, and accessibility.
+- **[SwiftData Agent Skill](https://github.com/twostraws/SwiftData-Agent-Skill)** — Targets common LLM mistakes in SwiftData model definitions, queries, predicates, indexes, migrations, and iCloud sync.
+- **[Swift Concurrency Agent Skill](https://github.com/twostraws/Swift-Concurrency-Agent-Skill)** — Targets common LLM mistakes in async/await, actors, Sendable, and structured concurrency patterns.
+- **[Swift Testing Agent Skill](https://github.com/twostraws/Swift-Testing-Agent-Skill)** — Improves Swift test code targeting common LLM mistakes with `@Test`, `#expect`, parameterized testing, and traits.
+- **[Swift API Design Guidelines](https://github.com/Erikote04/Swift-API-Design-Guidelines-Agent-Skill)** — Structured guidance on Swift API naming, argument labels, terminology, and conventions aligned with Apple's official guidelines.
+- **[Swift Architecture Skill](https://github.com/efremidze/swift-architecture-skill)** — Routes to the right design pattern based on your feature's needs with scoped playbooks for Swift development.
+- **[Swift Security Skill](https://github.com/ivan-magda/swift-security-skill)** — Reviews and implements secure credential storage, biometric authentication, and cryptography using Keychain Services and CryptoKit.
+- **[SwiftUI Performance Audit](https://github.com/Dimillian/Skills/tree/main/swiftui-performance-audit)** — Identifies and resolves performance issues in SwiftUI applications through systematic auditing.
+- **[iOS Simulator Skill](https://github.com/conorluddy/ios-simulator-skill)** — Automation toolkit enabling Claude Code to build, test, and interact with iOS apps using semantic navigation.
+- **[Writing for Interfaces](https://github.com/andrewgleave/skills/tree/main/writing-for-interfaces)** — Reviews and evaluates UI copy for clarity, purpose, and consistency by establishing product voice and applying structured writing principles.
+
 ## License
 
 MIT

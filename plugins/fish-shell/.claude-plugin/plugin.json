@@ -1,0 +1,12 @@
+{
+  "name": "fish-shell",
+  "description": "Fish shell documentation - use when writing fish scripts, configuring fish shell, understanding fish syntax, or migrating from bash to fish",
+  "version": "0.0.1",
+  "author": {
+    "name": "Greg Lamb",
+    "email": "email@greglamb.dev"
+  },
+  "homepage": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "repository": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "license": "MIT"
+}

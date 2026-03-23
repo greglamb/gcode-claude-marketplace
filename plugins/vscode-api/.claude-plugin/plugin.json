@@ -1,0 +1,12 @@
+{
+  "name": "vscode-api",
+  "description": "VS Code Extension API documentation and guidance for building VS Code extensions",
+  "version": "0.0.1",
+  "author": {
+    "name": "Greg Lamb",
+    "email": "email@greglamb.dev"
+  },
+  "homepage": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "repository": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "license": "MIT"
+}

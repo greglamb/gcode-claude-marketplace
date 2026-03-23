@@ -12,6 +12,14 @@
     {
       "name": "vibecode-workflow",
       "source": "./plugins/vibecode-workflow"
+    },
+    {
+      "name": "vscode-api",
+      "source": "./plugins/vscode-api"
+    },
+    {
+      "name": "fish-shell",
+      "source": "./plugins/fish-shell"
     }
   ]
 }
