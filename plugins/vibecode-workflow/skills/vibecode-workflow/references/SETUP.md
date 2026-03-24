@@ -47,15 +47,19 @@
 
 Worktree directory: .worktrees/
 
-### Worktree Safety Gate
+### Worktree Safety Gate (enforced by hook)
 
-**BEFORE creating any worktree**, you MUST:
-1. Run `git status` and confirm a clean working tree (no uncommitted or unstaged changes)
-2. If there are uncommitted changes, **commit them first** — do NOT stash, do NOT proceed
-3. If changes are WIP and shouldn't be committed, STOP and ask the user what to do
-4. After worktree merge/cleanup, verify the source branch still has all expected files
+A `PreToolUse` hook on `Bash` automatically blocks `git worktree add` if there are uncommitted changes. The hook will:
+1. Detect any `git worktree add` command
+2. Run `git status --porcelain` and block execution if the working tree is dirty
+3. Report which files are uncommitted
 
-This is non-negotiable. Uncommitted files on the source branch will be silently orphaned during worktree operations.
+If the hook blocks you:
+- **Commit changes first** — do NOT stash, do NOT bypass
+- If changes are WIP and shouldn't be committed, STOP and ask the user what to do
+- After worktree merge/cleanup, verify the source branch still has all expected files
+
+Uncommitted files on the source branch will be silently orphaned during worktree operations.
 
 ## Documentation Requirements
 - **CHANGELOG.md**: ALL user-facing changes MUST be documented in CHANGELOG.md (root)
