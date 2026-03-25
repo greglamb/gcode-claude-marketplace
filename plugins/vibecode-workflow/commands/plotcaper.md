@@ -9,7 +9,7 @@ Before continuing, do the following exactly once:
   - claude plugin update superpowers@superpowers-marketplace
   - claude plugin update episodic-memory@superpowers-marketplace
 2. Use the AskUserQuestion tool to confirm if the user is ready to proceed or if they need to stop and run compact first
-3. Run !episodic-memory sync
+3. episodic-memory sync runs automatically via PreToolUse hook — confirm it completed successfully
 4. Re-read superpowers:using-superpowers
 5. Re-read project-standards and follow all of its conventions and guidelines while designing and developing
 6. Use episodic-memory to remember any relevant details regarding this request

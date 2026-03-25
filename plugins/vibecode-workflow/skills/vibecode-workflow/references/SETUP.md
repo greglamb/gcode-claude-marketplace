@@ -47,18 +47,50 @@
 
 Worktree directory: .worktrees/
 
-### Worktree Safety Gate
+## Hook-Enforced Rules
 
-**BEFORE creating any worktree**, you MUST:
-1. Run `git status` and confirm a clean working tree (no uncommitted or unstaged changes)
-2. If there are uncommitted changes, **commit them first** — do NOT stash, do NOT proceed
-3. If changes are WIP and shouldn't be committed, STOP and ask the user what to do
-4. After worktree merge/cleanup, verify the source branch still has all expected files
+The following rules are enforced mechanically by hooks and cannot be bypassed:
 
-This is non-negotiable. Uncommitted files on the source branch will be silently orphaned during worktree operations.
+### Worktree Safety Gate (`PreToolUse` → `worktree-safety-gate.sh`)
+
+Blocks `git worktree add` if:
+1. Working tree has uncommitted changes (prevents silent orphaning of files)
+2. Worktree path is not inside `.worktrees/` directory
+
+If the hook blocks you:
+- **Commit changes first** — do NOT stash, do NOT bypass
+- If changes are WIP and shouldn't be committed, STOP and ask the user what to do
+- After worktree merge/cleanup, verify the source branch still has all expected files
+
+### Commit Message Validator (`PreToolUse` → `commit-message-validator.sh`)
+
+Blocks `git commit` if the message does not follow Conventional Commits format:
+- Required format: `type(scope): description`
+- Allowed types: feat, fix, docs, style, refactor, test, chore, build, ci, perf, revert
+- First line must be 72 characters or fewer
+
+### Staging Guard (`PreToolUse` → `staging-guard.sh`)
+
+Blocks `git add -A` / `git add .` if untracked files match sensitive patterns (`.env`, `.pem`, `.key`, credentials, SSH keys). Stage files individually instead.
+
+### CHANGELOG/TODO Reminder (`PostToolUse` → `changelog-todo-reminder.sh`)
+
+After each successful `git commit`, checks whether CHANGELOG.md and TODO.md were included. Provides a non-blocking reminder if they were not.
+
+### CLAUDE.md Drift Detection (`SessionStart` → `claudemd-drift-detection.sh`)
+
+On session start, checks if CLAUDE.md exists but is missing vibecode-workflow markers. Suggests running the vibecode-workflow skill in validate mode.
+
+### Plugin Dependency Check (`SessionStart` → `check-plugin-dependencies.sh`)
+
+On session start, verifies that required plugins (superpowers, episodic-memory, project-standards) are installed. Warns with install commands if missing.
+
+### episodic-memory Sync (`PreToolUse` → `plotcaper-pre-sync.sh`)
+
+Automatically runs `episodic-memory sync` before the plotcaper skill executes.
 
 ## Documentation Requirements
 - **CHANGELOG.md**: ALL user-facing changes MUST be documented in CHANGELOG.md (root)
 - **TODO.md**: ALL deferred work, known limitations, and planned features MUST be tracked in TODO.md (root)
-- Update both files as part of every PR/commit that changes behavior
+- Update both files as part of every PR/commit that changes behavior (enforced by `changelog-todo-reminder` hook)
 - **Deferred work rule**: Any task identified during implementation that is explicitly out of scope or deferred MUST be added to TODO.md before the work is considered complete. This includes: scope reductions, "fix later" decisions, discovered tech debt, and follow-up improvements. Never defer work silently.
