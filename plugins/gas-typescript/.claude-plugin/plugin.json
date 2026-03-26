@@ -1,6 +1,6 @@
 {
-  "name": "vscode-api",
-  "description": "VS Code Extension API documentation and guidance for building VS Code extensions",
+  "name": "gas-typescript",
+  "description": "Best practices, patterns, and toolchain for Google Apps Script projects using TypeScript, Rollup, and clasp.",
   "version": "0.2512.1902",
   "author": {
     "name": "Greg Lamb",

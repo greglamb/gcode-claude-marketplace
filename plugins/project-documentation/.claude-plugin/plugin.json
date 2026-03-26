@@ -1,0 +1,12 @@
+{
+  "name": "project-documentation",
+  "description": "Documentation framework that resists decay. Match your writing approach to each topic's shelf life — from ADRs and conceptual guides to README templates across 12 project types. Includes domain guides, docs triage, PR workflows, and CLAUDE.md guidance.",
+  "version": "0.2512.1902",
+  "author": {
+    "name": "Greg Lamb",
+    "email": "email@greglamb.dev"
+  },
+  "homepage": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "repository": "https://github.com/greglamb/vibecode-workflow-marketplace",
+  "license": "MIT"
+}

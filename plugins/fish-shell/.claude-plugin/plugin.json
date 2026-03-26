@@ -1,7 +1,7 @@
 {
   "name": "fish-shell",
   "description": "Fish shell documentation - use when writing fish scripts, configuring fish shell, understanding fish syntax, or migrating from bash to fish",
-  "version": "0.0.1",
+  "version": "0.2512.1902",
   "author": {
     "name": "Greg Lamb",
     "email": "email@greglamb.dev"

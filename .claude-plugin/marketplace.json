@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Collection of tools used in my AI assisted workflow",
-    "version": "0.0.1"
+    "version": "0.2603.2501"
   },
   "plugins": [
     {
@@ -20,6 +20,14 @@
     {
       "name": "fish-shell",
       "source": "./plugins/fish-shell"
+    },
+    {
+      "name": "gas-typescript",
+      "source": "./plugins/gas-typescript"
+    },
+    {
+      "name": "project-documentation",
+      "source": "./plugins/project-documentation"
     }
   ]
 }
