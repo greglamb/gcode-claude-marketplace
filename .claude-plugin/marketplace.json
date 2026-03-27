@@ -1,12 +1,12 @@
 {
-  "name": "gcode-claude-marketplace",
+  "name": "claude-gcode-tools",
   "owner": {
     "name": "Greg Lamb",
     "email": "email@greglamb.dev"
   },
   "metadata": {
     "description": "Collection of tools used in my AI assisted workflow",
-    "version": "0.2603.2701"
+    "version": "0.2603.2702"
   },
   "plugins": [
     {

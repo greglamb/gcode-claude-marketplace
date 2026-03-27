@@ -1,48 +1,50 @@
 # goodvibes-workflow
 
-A project template for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that provides structured commands, skills, and documentation conventions out of the box.
+A project template for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that provides structured commands, skills, hooks, and documentation conventions out of the box.
+
+## Prerequisites
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and authenticated
+- The following dependency plugins (see [Recommended Extras](../../README.md#recommended-extras) for details):
+  - **superpowers** — planning, brainstorming, TDD, code review
+  - **episodic-memory** — persistent context across sessions
+  - **skill-creator** — skill authoring (used by `/vibecreatestandards`)
 
 ## Getting Started
 
-1. **Install Claude Code** if you haven't already:
+1. **Install the plugin:**
 
    ```bash
-   npm install -g @anthropic-ai/claude-code
+   claude plugin marketplace add greglamb/claude-gcode-tools
+   claude plugin install goodvibes-workflow@claude-gcode-tools
    ```
 
-2. **Install the plugin** from your project directory:
+2. **Install dependency plugins:**
 
    ```bash
-   claude plugin marketplace add greglamb/gcode-claude-marketplace
-   claude plugin install goodvibes-workflow@gcode-claude-marketplace
+   claude plugin marketplace add obra/superpowers-marketplace
+   claude plugin install superpowers@superpowers-marketplace
+   claude plugin install episodic-memory@superpowers-marketplace
+   claude plugin install skill-creator@claude-plugins-official
    ```
 
-3. **Install dependency plugins** — The workflow uses two additional marketplace plugins:
+3. **Run setup** — Use `/vibesetup` to initialize your project environment (creates `.worktrees/`, `_reference/`, `TODO.md`, `CHANGELOG.md`, and configures `CLAUDE.md`).
 
-   ```bash
-   /plugin marketplace add obra/superpowers-marketplace
-   /plugin install superpowers@superpowers-marketplace
-   /plugin install episodic-memory@superpowers-marketplace
-   /plugin install skill-creator@claude-plugins-official
-   ```
+4. **Define your standards** — Use `/vibecreatestandards` to generate a `project-standards` skill, or manually edit `.claude/skills/project-standards/SKILL.md` with your project's coding conventions, linting rules, and architectural guidelines. This skill is invoked before any code is written or modified. For help authoring skills, try using the [Anthropic Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) or the [Skill Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) tool.
 
-4. **Run setup** — Use `/vibesetup` to initialize your project environment (creates `.worktrees/`, `_reference/`, `TODO.md`, `CHANGELOG.md`, and configures `CLAUDE.md`).
+5. **Add reference files** — Drop style guides, API specs, or other reference material into `.claude/skills/project-standards/references/`.
 
-5. **Define your standards** — Use `/vibecreatestandards` to generate a `project-standards` skill, or manually edit `.claude/skills/project-standards/SKILL.md` with your project's coding conventions, linting rules, and architectural guidelines. This skill is invoked before any code is written or modified. For help authoring skills, try using the [Anthropic Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) or the [Skill Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) tool.
-
-6. **Add reference files** — Drop style guides, API specs, or other reference material into `.claude/skills/project-standards/references/`.
-
-7. **Start Claude Code** from the project root:
+6. **Start Claude Code** from the project root:
 
    ```bash
    claude
    ```
 
-8. **Use the commands** — Type `/vibecheck`, `/vibecommit`, `/vibetodo`, etc. in your Claude Code session.
+7. **Use the commands** — Type `/vibecheck`, `/vibecommit`, `/vibetodo`, etc. in your Claude Code session.
 
 ## What's Included
 
-### Custom Slash Commands (`.claude/commands/`)
+### Custom Slash Commands
 
 | Command                | Example                                                                                                                    | Description                                                                                                                                                                                                                                                             |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -58,16 +60,13 @@ A project template for [Claude Code](https://docs.anthropic.com/en/docs/claude-c
 | `/vibebackup`          | /vibebackup TODO.md _reference/_archive/todo/                                                                              | Copies a file to a target directory with a Unix epoch timestamp in the filename                                                                                                                                                                                         |
 | `/vibedebug`           | /vibedebug                                                                                                                 | Uses `superpowers:systematic-debugging` to review files in `_reference/debug`                                                                                                                                                                                           |
 
-### Project Skills (`.claude/skills/`)
+### Dependency Plugins
 
-- **project-standards** — Define your coding standards, linting rules, and conventions here. Referenced by `CLAUDE.md` as a required skill before any code changes.
+Three marketplace plugins are required:
 
-### Plugins (`.claude/settings.json`)
-
-Two marketplace plugins are enabled by default:
-
-- **superpowers** — Extended planning, brainstorming, and verification capabilities
-- **episodic-memory** — Persistent context across Claude Code sessions
+- 🔌 **superpowers** — Extended planning, brainstorming, and verification capabilities
+- 🔌 **episodic-memory** — Persistent context across Claude Code sessions
+- 🔌 **skill-creator** — Skill authoring (used by `/vibecreatestandards`)
 
 ### Documentation Conventions
 

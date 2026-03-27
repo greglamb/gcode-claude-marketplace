@@ -1,12 +1,12 @@
 {
   "name": "goodvibes-workflow",
   "description": "Collection of tools used in my AI assisted workflow",
-  "version": "0.2603.2701",
+  "version": "0.2603.2702",
   "author": {
     "name": "Greg Lamb",
     "email": "email@greglamb.dev"
   },
-  "homepage": "https://github.com/greglamb/gcode-claude-marketplace",
-  "repository": "https://github.com/greglamb/gcode-claude-marketplace",
+  "homepage": "https://github.com/greglamb/claude-gcode-tools",
+  "repository": "https://github.com/greglamb/claude-gcode-tools",
   "license": "MIT"
 }

@@ -1,12 +1,12 @@
 {
   "name": "presentation-design",
   "description": "Tool-agnostic design guidance and storytelling frameworks for creating visually compelling slide presentations. Covers a structured 3-phase workflow (plan, build, review), color palettes, typography, layout patterns, data visualization, narrative arc selection, and iterative review cycles. Designed to pair with a tool-specific skill like gws-slides or pptx.",
-  "version": "0.2603.2702",
+  "version": "0.2603.2703",
   "author": {
     "name": "Greg Lamb",
     "email": "email@greglamb.dev"
   },
-  "homepage": "https://github.com/greglamb/gcode-claude-marketplace",
-  "repository": "https://github.com/greglamb/gcode-claude-marketplace",
+  "homepage": "https://github.com/greglamb/claude-gcode-tools",
+  "repository": "https://github.com/greglamb/claude-gcode-tools",
   "license": "MIT"
 }

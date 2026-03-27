@@ -1,12 +1,12 @@
 {
   "name": "fish-shell",
   "description": "Fish shell documentation - use when writing fish scripts, configuring fish shell, understanding fish syntax, or migrating from bash to fish",
-  "version": "0.2603.2701",
+  "version": "0.2603.2702",
   "author": {
     "name": "Greg Lamb",
     "email": "email@greglamb.dev"
   },
-  "homepage": "https://github.com/greglamb/gcode-claude-marketplace",
-  "repository": "https://github.com/greglamb/gcode-claude-marketplace",
+  "homepage": "https://github.com/greglamb/claude-gcode-tools",
+  "repository": "https://github.com/greglamb/claude-gcode-tools",
   "license": "MIT"
 }
