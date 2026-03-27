@@ -24,7 +24,7 @@ claude plugin install goodvibes-workflow@gcode-claude-marketplace
 
 Plugins, skills, and tools from other sources that pair well with this marketplace.
 
-### Plugins
+### General Plugins
 
 <details>
 <summary><strong>skill-seekers</strong> — Create AI skills from documentation, repos, and other sources</summary>
@@ -37,7 +37,7 @@ claude plugin install skill-seekers@claude-plugin-directory
 
 </details>
 
-### Skills
+### General Skills
 
 <details>
 <summary><strong>Google Workspace CLI</strong> — CLI tools for Google Workspace APIs</summary>
@@ -59,7 +59,7 @@ git clone https://github.com/jgraph/drawio-mcp.git /tmp/drawio-mcp && cp -r /tmp
 
 </details>
 
-### Swift / Apple Development
+### Swift / Apple Development Skills
 
 <details>
 <summary><strong>SwiftUI Agent Skill</strong> — Better SwiftUI code with guidance on API usage, design, performance, and accessibility</summary>
