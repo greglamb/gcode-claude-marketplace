@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Auto-bump CalVer versions on commit:
+# - Bumps plugin version when any file in that plugin's directory is staged
+# - Bumps marketplace version when marketplace.json is staged
+
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+BUMP="$ROOT/scripts/projects/bumpCalver.sh"
+
+if [[ ! -x "$BUMP" ]]; then
+  echo "pre-commit: bumpCalver.sh not found or not executable, skipping version bump" >&2
+  exit 0
+fi
+
+STAGED=$(git diff --cached --name-only)
+
+# Bump each plugin that has staged changes
+PLUGINS=()
+while IFS= read -r file; do
+  if [[ "$file" =~ ^plugins/([^/]+)/ ]]; then
+    PLUGIN="${BASH_REMATCH[1]}"
+    if [[ ! " ${PLUGINS[*]:-} " =~ " $PLUGIN " ]]; then
+      PLUGINS+=("$PLUGIN")
+    fi
+  fi
+done <<< "$STAGED"
+
+for PLUGIN in "${PLUGINS[@]}"; do
+  PLUGIN_JSON="$ROOT/plugins/$PLUGIN/.claude-plugin/plugin.json"
+  if [[ -f "$PLUGIN_JSON" ]]; then
+    "$BUMP" "$PLUGIN_JSON" "version"
+    git add "$PLUGIN_JSON"
+  fi
+done
+
+# Bump marketplace version only if marketplace.json itself was staged
+if echo "$STAGED" | grep -q '^\.claude-plugin/marketplace.json$'; then
+  "$BUMP" "$ROOT/.claude-plugin/marketplace.json" "metadata.version"
+  git add "$ROOT/.claude-plugin/marketplace.json"
+fi
