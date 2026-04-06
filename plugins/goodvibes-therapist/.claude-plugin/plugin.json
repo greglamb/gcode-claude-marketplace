@@ -1,0 +1,12 @@
+{
+  "name": "goodvibes-therapist",
+  "description": "Prevents reward hacking, corner-cutting, and degraded output quality caused by accumulated failure pressure.",
+  "version": "0.2604.601",
+  "author": {
+    "name": "Greg Lamb",
+    "email": "email@greglamb.dev"
+  },
+  "homepage": "https://github.com/greglamb/claude-gcode-tools",
+  "repository": "https://github.com/greglamb/claude-gcode-tools",
+  "license": "MIT"
+}

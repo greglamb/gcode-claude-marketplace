@@ -6,12 +6,16 @@
   },
   "metadata": {
     "description": "Collection of tools used in my AI assisted workflow",
-    "version": "0.2603.2702"
+    "version": "0.2604.601"
   },
   "plugins": [
     {
       "name": "goodvibes-workflow",
       "source": "./plugins/goodvibes-workflow"
+    },
+    {
+      "name": "goodvibes-therapist",
+      "source": "./plugins/goodvibes-therapist"
     },
     {
       "name": "vscode-api",
