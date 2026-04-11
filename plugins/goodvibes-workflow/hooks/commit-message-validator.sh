@@ -15,8 +15,13 @@ if echo "$COMMAND" | grep -qE -- '--amend\s*$'; then
   exit 0
 fi
 
-# Extract the commit message from -m "..." or -m '...'
-MSG=$(echo "$COMMAND" | sed -nE "s/.*git\s+commit\s+.*-m\s+[\"']([^\"']+)[\"'].*/\1/p")
+# Extract the FIRST -m argument value (handles double or single quotes).
+# Using grep -oE avoids sed's greedy .* which would otherwise capture the
+# LAST -m flag in multi-`-m` commits (e.g. trailing Co-Authored-By).
+MSG=$(echo "$COMMAND" \
+  | grep -oE -- '-m[[:space:]]+"[^"]*"|-m[[:space:]]+'\''[^'\'']*'\''' \
+  | head -1 \
+  | sed -E 's/^-m[[:space:]]+["'\'']//; s/["'\'']$//')
 
 # If using heredoc or other format, try to extract from $(cat <<
 if [ -z "$MSG" ]; then
