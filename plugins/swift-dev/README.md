@@ -90,6 +90,7 @@ These are the plugin's skills, available via the `/` menu:
 | `/swift-dev:verify-ui` | Made UI changes, want visual + accessibility verification | No — invoke explicitly |
 | `/swift-dev:health-check` | Pre-release or pre-PR full project audit | No — invoke explicitly |
 | `/swift-dev:review` | Ready to review changes before committing | No — invoke explicitly |
+| `/swift-dev:release` | Setting up macOS app signing, notarization, Homebrew cask, or release workflows | Yes — triggers on "ship macOS app", "notarize", "homebrew cask" |
 
 Skills marked "No" for auto-invocation use `disable-model-invocation: true` — Claude won't run them unless you explicitly ask.
 
@@ -118,6 +119,10 @@ Reports issues grouped by severity (Critical / Warning / Info) with recommended 
 
 Spawns the `swift-reviewer` subagent in a separate context window. The subagent has read-only tool access — it can read files and run `git diff` but cannot modify anything. It reviews against a prioritized checklist: correctness, concurrency safety, SwiftData rules, memory management, API deprecations, testability, and accessibility. Returns structured findings. If critical issues are found, the main agent offers to fix them.
 
+#### `/swift-dev:release`
+
+House playbook for shipping a Developer-ID-signed, notarized macOS SwiftUI app via GitHub Actions and a Homebrew cask in the same repo. Covers the two-workflow CI/release layout, signing + notarization + stapling, signed DMG creation, pinned cask SHAs, CI-driven cask bumps, required GitHub secrets, Info.plist requirements, and common failure modes with fixes. Use when setting up release automation, authoring a Homebrew cask, or diagnosing notarization issues.
+
 ## What's in the plugin
 
 ```
@@ -130,6 +135,7 @@ swift-dev/
 │   ├── tdd/SKILL.md                 # Test-driven development workflow
 │   ├── verify-ui/SKILL.md           # Screenshot + accessibility verification
 │   ├── health-check/SKILL.md        # Full project audit
+│   ├── release/SKILL.md             # macOS signing, notarization, Homebrew cask
 │   └── review/SKILL.md              # Delegates to swift-reviewer subagent
 ├── agents/
 │   └── swift-reviewer.md            # Read-only code reviewer (separate context)
