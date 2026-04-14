@@ -1,5 +1,5 @@
 ---
-name: goodvibes-therapist
+name: goodvibes-noworries
 description: >
   Prevents reward hacking, corner-cutting, and degraded output quality caused by accumulated failure pressure.
   Use this skill whenever Claude encounters repeated failures, impossible constraints, unsolvable problems,
@@ -12,7 +12,7 @@ description: >
   with no markers in the output text.
 ---
 
-# Goodvibes Therapist
+# Goodvibes No Worries
 
 ## Why this skill exists
 
