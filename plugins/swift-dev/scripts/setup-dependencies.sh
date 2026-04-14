@@ -37,7 +37,7 @@ if claude plugin list 2>/dev/null | grep -qi axiom; then
 else
   echo "  ℹ️  Axiom plugin not detected. Install it after this session:" >&2
   echo "     claude plugin marketplace add CharlesWiltgen/Axiom" >&2
-  echo "     claude plugin install CharlesWiltgen/Axiom" >&2
+  echo "     claude plugin install axiom@axiom-marketplace" >&2
 fi
 
 # --- Hudson Pro skills ---

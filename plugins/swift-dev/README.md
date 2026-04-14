@@ -15,11 +15,11 @@ claude plugin install swift-dev@claude-gcode-tools
 
 ### 2. Install Axiom (recommended, once, globally)
 
-Axiom provides 175+ Apple development skills and autonomous agents. It ships as its own marketplace, so add the marketplace first, then install the plugin:
+Axiom provides 175+ Apple development skills and autonomous agents:
 
 ```bash
 claude plugin marketplace add CharlesWiltgen/Axiom
-claude plugin install CharlesWiltgen/Axiom
+claude plugin install axiom@axiom-marketplace
 ```
 
 If you skip this step, `/swift-dev:init` will detect that Axiom is missing and tell you how to install it.

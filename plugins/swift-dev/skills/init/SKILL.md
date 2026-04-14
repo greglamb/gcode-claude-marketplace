@@ -23,7 +23,7 @@ After the script completes, check if Axiom is installed by looking for any skill
 **⚠️ Axiom is not installed.** Add its marketplace and install the plugin:
 ```bash
 claude plugin marketplace add CharlesWiltgen/Axiom
-claude plugin install CharlesWiltgen/Axiom
+claude plugin install axiom@axiom-marketplace
 ```
 After installing, run `/reload-plugins` if you ran the commands from inside Claude Code, or just restart the session.
 
